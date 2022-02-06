@@ -1,8 +1,6 @@
 /*
-
 ► Ex 5 Done!
-► Ex 6 Not Done??????????????
-
+► Ex 6 Done!
 */
 
 // 5th. Flatten nested array with recursion
@@ -37,47 +35,31 @@ function flatten (array) {
 console.log(flatten(nested1))
 console.log(flatten(nested2))
 
-//// աշխատանքային տարբերակ
-
-// function flatten (array, help) {
-
-//     let arr = [];
-    
-//     help (array, 0)
-    
-//     function help (array, i){
-    
-//         if (i === array.length) 
-//     {
-//         return array
-//     }
-
-//     else if (i <= array.length) {
-
-//         array[i] = array[i+1]
-        
-//         help(array, i+1);
-
-//         let element = array[i];
-        
-//         if (Array.isArray(element)) {
-//                return help(element)
-//             } else 
-//             {
-//             arr.push(element, i+1);
-//             }
-        
-//         }
-        
-//     }
-//     return arr;
-// }
-    
-// console.log(flatten(nested1))
-// console.log(flatten(nested2))
-
 
                 console.log('------end of 5th ----')
 
-// 6th. 
+// 6th. Rec function that rotates an Arr 
+//      N places to left (use arr.unshift())
 
+//['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] 3 ► ['d', 'e', 'f', 'g', 'h', 'a', 'b', 'c']
+//['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] -2 ► ['g', 'h', 'a', 'b', 'c', 'd', 'e', 'f']
+
+const rotateArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+
+function rotateLeft (a, n) {
+
+    if (n===a.length) return a;
+
+    else if (n<a.length) {
+        
+        a.unshift(a.pop(n))
+
+        rotateLeft(a, n+1)
+
+    }; return a;
+};
+
+ console.log(rotateLeft(rotateArr, 3))
+//  console.log(rotateLeft(rotateArr, -2)) 
+
+             console.log('------end of 6th ----')

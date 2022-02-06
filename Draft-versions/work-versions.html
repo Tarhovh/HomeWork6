@@ -101,6 +101,45 @@ console.log(shift(removeArr2))
 console.log(shift(removeArr3))
 
 
+// 5th
+function flatten (array, help) {
+
+let arr = [];
+
+help (array, 0)
+
+function help (array, i){
+
+    if (i === array.length) 
+{
+    return array
+}
+
+else if (i <= array.length) {
+
+    array[i] = array[i+1]
+    
+    help(array, i+1);
+
+    let element = array[i];
+    
+    if (Array.isArray(element)) {
+           return help(element)
+        } else 
+        {
+        arr.push(element, i+1);
+        }
+    
+    }
+    
+}
+return arr;
+}
+
+console.log(flatten(nested1))
+console.log(flatten(nested2))
+
+
 
 </script>
 
