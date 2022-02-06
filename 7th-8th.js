@@ -36,6 +36,8 @@ console.log(sum(number3))
 
 console.log('------end of 7th ----')
 
+
+
 // 8th Deep clone OBJ with recursive function
 
 const myCompany = {
@@ -51,32 +53,34 @@ const myCompany = {
 
 let myClone = {}
 
+console.log('↓ Original')
+console.log(myCompany)
 
-// function ObjClone(myOBJ) {
+console.log('↓ non recursive Clone')
+function ObjClone(myOBJ) {
 
-//     for (let key in myOBJ) {
-//         if (myOBJ.hasOwnProperty(key)) {
-//         myClone[key] = myOBJ[key];
+    for (let key in myOBJ) {
+        if (myOBJ.hasOwnProperty(key)) {
+        myClone[key] = myOBJ[key];
 
-//         // myClone.head = 'Pilipos';
-//         // ((myClone || {}).subBudjet || {}).sallery = "$9000000";
-//         // ((myClone || {}).subBudjet || {}).other = "$6000000"
-//        }
+        // myClone.head = 'Pilipos';
+        // ((myClone || {}).subBudjet || {}).sallery = "$9000000";
+        // ((myClone || {}).subBudjet || {}).other = "$6000000"
+       }
       
-//       }
-//       return myClone
+      }
+      return myClone
       
-// }
-
-// console.log(ObjClone(myCompany))
-
+}
 
 console.log(ObjClone(myCompany))
 
+
 /////////////////////////////////////////////////
 
+console.log('↓‼ recurcive clone without keys')
 
-function ObjClone(myOBJ, newObj) {
+function ObjClone2(myOBJ, newObj) {
 
     
 
@@ -106,5 +110,7 @@ function ObjClone(myOBJ, newObj) {
       return myClone;
 }
 
-console.log(ObjClone(myCompany))
+console.log(ObjClone2(myCompany))
 
+
+console.log('------end of 8th ----')
