@@ -1,6 +1,6 @@
 /*
 ► Ex 7 Done!
-► Ex 8 Partly done???
+► Ex 8 Done!
 
 */
 
@@ -56,14 +56,47 @@ let myClone = {}
 console.log('↓ Original')
 console.log(myCompany)
 
+
+console.log('↓‼ recurcive clone')
+
+function ObjClone2(myOBJ, newObj) {
+
+    let myEntries = [myOBJ]
+    let myOBJ2 = {}
+    let myClone = {}
+
+    newObj(myEntries, myClone, 0, 0)
+    
+    function newObj (myEntries, myOBJ2, value) {
+
+        if (value===myEntries.length) {
+          
+            return myOBJ2
+        }
+
+        else if (value < myEntries.length) {
+
+            myOBJ2[value] = myEntries[value]
+            myClone = myOBJ2[0]
+            myClone.head = 'Panos';
+
+            return newObj (myEntries, myOBJ2, value+1)
+        }
+    }; return myClone;
+}
+
+console.log(ObjClone2(myCompany))
+
+
 console.log('↓ non recursive Clone')
+
 function ObjClone(myOBJ) {
 
     for (let key in myOBJ) {
         if (myOBJ.hasOwnProperty(key)) {
         myClone[key] = myOBJ[key];
 
-        // myClone.head = 'Pilipos';
+        myClone.head = 'Pilipos';
         // ((myClone || {}).subBudjet || {}).sallery = "$9000000";
         // ((myClone || {}).subBudjet || {}).other = "$6000000"
        }
@@ -74,43 +107,5 @@ function ObjClone(myOBJ) {
 }
 
 console.log(ObjClone(myCompany))
-
-
-/////////////////////////////////////////////////
-
-console.log('↓‼ recurcive clone without keys')
-
-function ObjClone2(myOBJ, newObj) {
-
-    
-
-    let myEntries = Object.keys(myOBJ)
-
-    let mybla = Object.values(myOBJ)
-
-    let myClone = {}
-
-    newObj(myEntries, myClone, 0, 0)
-    
-    function newObj (myEntries, myClone, ke, value) {
-
-        if (ke === mybla.length && value ===myEntries.length) {
-          
-            return myClone
-        }
-
-        else if (ke < mybla.length && value < myEntries.length) {
-
-            myClone[value] = mybla[value]
-
-            return newObj (myEntries, myClone, ke+1, value+1)
-        }
-       
-    } 
-      return myClone;
-}
-
-console.log(ObjClone2(myCompany))
-
 
 console.log('------end of 8th ----')
